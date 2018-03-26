@@ -1,0 +1,109 @@
+{% extends 'base.html' %}
+
+{% block title %} Expenditure {% endblock %}
+
+{% block body %}
+	<div class="row">
+		<div class="col-sm-6">
+			<div class="card">
+				<!-- <img class="card-img-top" data-src="holder.js/100%x180/" alt="Card image cap"> -->
+				<div class="card-header">
+					<h4 class="card-title">Supply Graph <hr></h4>
+				</div>
+				<div class="card-body">
+					<div id="donut">
+						
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="col-sm-6">
+			<div class="card">
+				<!-- <img class="card-img-top" data-src="holder.js/100%x180/" alt="Card image cap"> -->
+				<div class="card-header">
+					<h4 class="card-title">Expenditure trends over the months <hr></h4>
+				</div>
+				<div class="card-body">
+					<div id="trends">
+						
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-sm-12">
+			<table class="table table-bordered table-striped">
+				<thead>
+					<tr>
+						<th>Date</th>
+						<th>Sales Details</th>
+						<th>Quantity</th>
+						<th>Amount</th>
+						<th>Supplier Name</th>
+						<th>Supplier Contact</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>2nd March 2018</td>
+						<td>T-Shirt Purchase</td>
+						<td>10</td>
+						<td>150000</td>
+						<td>Rits Arts INC</td>
+						<td>+256785669654</td>
+					</tr>
+					<tr>
+						<td>2nd March 2018</td>
+						<td>Airtime Purchase</td>
+						<td>100</td>
+						<td>500000</td>
+						<td>MTN Uganda</td>
+						<td>+256754211454</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+
+	<script type="text/javascript">
+		new Morris.Donut({
+            element: 'donut',
+            data: [{
+                label: "Jan",
+                value: 40
+            }, {
+                label: "Feb",
+                value: 25
+            }, {
+                label: "Mar",
+                value: 31
+            }],
+            resize: true
+        });
+
+       
+
+
+    </script>
+    <script type="text/javascript">
+    	new Morris.Bar({
+            element: 'trends',
+            data: 
+            [
+            	{Month: 'Nov', value: 74}, 
+	            {Month: 'Dec', value: 20},
+	            {Month: 'Jan', value: 40}, 
+	            {Month: 'Feb', value: 25}, 
+	            {Month: 'Mar', value: 31}
+	        ],
+            xkey: 'Month',
+            ykeys: ['value'],
+            labels: ['Number of sales']
+
+        });
+    </script>
+    
+{% endblock %}
